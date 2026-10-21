@@ -45,7 +45,7 @@ export function localPath(url, owner = 'index.html') {
   }
   return relative;
 }
-export async function resources(document) {
+export async function resources(document, { directory = source } = {}) {
   const files = new Set(['index.html']);
   const add = (url, owner) => { const file = localPath(url, owner); if (file) files.add(file); };
   for (const node of elements(document)) {
@@ -61,7 +61,7 @@ export async function resources(document) {
   // A Set iterator also visits CSS imports discovered while walking earlier stylesheets.
   for (const file of files) {
     if (!file.endsWith('.css')) continue;
-    postcss.parse(await read(file), { from: file }).walk(node => {
+    postcss.parse(await fs.readFile(path.join(directory, file), 'utf8'), { from: file }).walk(node => {
       const value = node.type === 'decl' ? node.value : node.type === 'atrule' ? node.params : '';
       valueParser(value).walk(part => {
         if (part.type === 'function' && part.value.toLowerCase() === 'url') {

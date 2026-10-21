@@ -1,0 +1,28 @@
+:root {
+  --rose:#b4656f; --rose-dark:#914952; --mint:#e1f4cb; --sage:#bacba9;
+  --olive:#3f4739; --ink:#30382c; --muted:#626a5a; --line:#dce3d5;
+  --paper:#f7f9f4; --sans:'Golos Text','Geist',Arial,sans-serif; --mono:'Geist Mono',monospace;
+  --heading:'Onest',var(--sans);
+  --type-caption:22px; --type-body:22px; --header-height:82px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:24px}
+body{margin:0;background:#fff;color:var(--ink);font:400 var(--type-body)/1.65 var(--sans);letter-spacing:0}
+h1,h2,h3,p{margin:0}h1,h2,h3{font-family:var(--heading);font-weight:600}h1,h2{line-height:1.08}h2{font-size:96px}
+a{color:inherit;text-decoration:none}button{font:inherit;color:inherit;cursor:pointer;border:0}
+button,a,summary{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid var(--rose-dark);outline-offset:5px}
+svg{width:20px;height:20px;flex-shrink:0;stroke-width:1.6}button svg{pointer-events:none}
+[hidden]{display:none!important}
+.wrap{width:calc(100% - 112px);max-width:1264px;margin:0 auto}
+.section{padding:112px 0}
+.skip-link{position:fixed;top:-100px;left:20px;background:white;padding:12px 20px;z-index:100}.skip-link:focus{top:12px}
+.rose-text{color:var(--rose-dark)}.mint-text{color:var(--mint)}
+.section-kicker{display:flex;justify-content:space-between;gap:24px;padding-bottom:42px;font:400 22px/1.6 var(--mono);color:var(--muted)}
+.section-kicker>span:first-child{color:var(--rose-dark)}
+/* Lift section labels without shifting the main content below them. */
+:is(.audience-section,.services,.reviews,.questions).section{padding-top:46px}
+:is(#for-you,#services,#reviews,#questions) .section-kicker{padding-bottom:108px}
+.button{display:inline-flex;align-items:center;justify-content:center;gap:24px;padding:15px 23px;min-height:52px;border-radius:4px;font-size:22px;line-height:1.5;transition:background .2s,transform .2s}
+.button-rose{background:var(--rose-dark);color:white}.button-rose:hover{background:#783d45;transform:translateY(-2px)}
+.text-link{display:inline-flex;align-items:center;gap:12px;font-size:24px;line-height:1.5}.text-link svg{width:17px;height:17px}.text-link:hover{color:var(--rose-dark)}

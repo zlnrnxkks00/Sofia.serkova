@@ -1,0 +1,38 @@
+.header{height:var(--header-height);position:absolute;top:0;left:0;width:100%;z-index:30;pointer-events:none}
+.header-inner{width:calc(100% - 110px);height:100%;display:grid;grid-template-columns:minmax(0,1fr) auto auto;align-items:center;gap:30px;border:1px solid transparent;pointer-events:auto;transition:max-width .55s cubic-bezier(.22,1,.36,1),width .55s cubic-bezier(.22,1,.36,1),grid-template-columns .55s,height .55s,margin-top .55s,padding .55s,gap .55s,background .4s,border-color .4s,border-radius .4s,box-shadow .4s}
+.header .wordmark{min-width:0;max-width:330px;transition:max-width .45s,opacity .25s,transform .45s,visibility .25s;overflow:hidden}
+.header-call{justify-self:end;overflow:hidden;transition:width .45s,padding .45s,border-width .45s,opacity .25s,transform .45s,visibility .25s,color .2s,border-color .2s}
+.wordmark{font-size:26px;font-weight:500;line-height:1.2;white-space:nowrap}.wordmark span{display:block;font-size:22px;font-weight:400;color:var(--muted);margin-top:5px}
+.header .wordmark{display:flex;align-items:center;gap:10px;max-width:230px}
+.header .wordmark .brand-lockup{font:700 32px/1.1 'Nunito',var(--sans);color:var(--ink);margin:0}
+.brand-tagline{display:block;font:400 13px/1.4 var(--sans);color:var(--muted);margin-top:4px}
+.desktop-nav{display:flex;gap:30px;font-size:22px}.desktop-nav a{padding:24px 0 20px;transition:color .2s}.desktop-nav a:hover,.desktop-nav a[aria-current]{color:var(--rose-dark)}
+.header-call{display:grid;place-items:center;width:54px;height:54px;min-height:54px;flex-shrink:0;border-radius:50%;border:1px solid var(--rose-dark);background:transparent;color:var(--rose-dark);padding:0}.header-call:hover{background:transparent;color:#783d45;border-color:#783d45;transform:none}.header-call svg{width:24px;height:24px}
+.icon-button{background:none;width:42px;height:42px;display:grid;place-items:center}.menu-toggle{display:none;width:54px;height:54px;padding:0;color:var(--rose)}
+.menu-toggle svg{width:36px;height:36px;stroke-width:1.5}
+.menu-toggle svg path{transform-box:view-box;transition:transform .55s cubic-bezier(.4,0,.2,1),opacity .3s ease}
+.menu-toggle svg path:nth-child(1){transform-origin:12px 5px}
+.menu-toggle svg path:nth-child(2){transform-origin:12px 12px}
+.menu-toggle svg path:nth-child(3){transform-origin:12px 19px}
+.menu-toggle[aria-expanded=true] svg path:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.menu-toggle[aria-expanded=true] svg path:nth-child(2){opacity:0;transform:scaleX(.5)}
+.menu-toggle[aria-expanded=true] svg path:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-nav{position:fixed;inset:0;width:100%;height:100vh;height:100dvh;background:#eaf0e2;pointer-events:auto;transform:translate3d(0,-100%,0);transition:transform .85s cubic-bezier(.4,0,.2,1);backface-visibility:hidden}
+.mobile-nav-inner{height:100%;padding-top:var(--header-height);display:flex;flex-direction:column;overflow:auto;overscroll-behavior:contain;scrollbar-width:none}
+.mobile-nav-inner::-webkit-scrollbar{display:none}
+.mobile-nav-links{flex:none;margin:auto 0;width:100%;border-top:1px solid rgba(145,73,82,.3)}
+.mobile-nav-links a{display:grid;grid-template-columns:40px minmax(0,1fr);align-items:center;gap:20px;padding:22px 36px;border-bottom:1px solid rgba(145,73,82,.3);font:500 48px/1.15 var(--sans);color:var(--ink);transition:background .2s,color .2s}
+.mobile-nav-links a:hover,.mobile-nav-links a:focus-visible{background:var(--rose-dark);color:var(--paper);outline-offset:-4px}
+.mobile-nav-links .menu-index{font:400 18px/1.5 var(--mono);color:var(--rose-dark)}
+.mobile-nav-links a:hover .menu-index,.mobile-nav-links a:focus-visible .menu-index{color:var(--mint)}
+.mobile-nav-footer{flex:none;padding:28px 36px max(28px,env(safe-area-inset-bottom));color:var(--rose-dark)}
+.mobile-nav-phone{display:inline-block;font-size:24px;line-height:1.5;margin-bottom:18px}
+.mobile-nav-socials{display:flex;flex-wrap:wrap;gap:12px 28px;font:400 16px/1.5 var(--mono)}
+.mobile-nav-socials a:hover,.mobile-nav-phone:hover{color:var(--ink)}
+html.menu-visible{overflow:hidden}
+html.menu-visible body{position:fixed;top:var(--menu-scroll-offset,0px);left:0;width:100%;overflow:hidden}
+html.menu-visible .header{position:fixed;z-index:100}
+html.menu-visible .header-inner{position:relative;z-index:1}
+html.menu-visible .mobile-nav{will-change:transform}
+html.menu-visible .header::after{content:"";position:absolute;left:0;right:0;top:calc(var(--header-height) - 1px);height:1px;background:rgba(145,73,82,.3);pointer-events:none}
+html.menu-open .mobile-nav{transform:translate3d(0,0,0)}

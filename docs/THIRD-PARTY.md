@@ -1,6 +1,7 @@
 # Сторонние материалы
 
 - Lucide v1.8.0: локальный скрипт `dist/assets/lucide.min.js`, ISC и уведомление о наследуемых Feather-иконках MIT в `LUCIDE-LICENSE.txt`.
+- React, React DOM, Scheduler и Lucide React: лицензии включённого браузерного кода автоматически сохраняются в `build/assets/THIRD-PARTY-LICENSES.md`. Прежний скрипт Lucide в React-сборку не входит.
 - Социальные значки: уведомление `dist/assets/SIMPLE-ICONS-LICENSE.md`.
 - Onest, Golos Text, Nunito, Geist и Geist Mono: локальные шрифты, уведомления SIL Open Font License в `dist/assets/fonts/`.
 - Дополнительные старые шрифты и изображения сохранены среди исходных материалов. В публикацию попадают только ресурсы, на которые ссылается текущий сайт, плюс файлы лицензий.
