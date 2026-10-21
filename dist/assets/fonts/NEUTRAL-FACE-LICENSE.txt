@@ -1,0 +1,14 @@
+Neutral Face Regular
+Copyright: Vadym Aksieiev
+
+License text embedded in the unmodified font (name table, name ID 13):
+Free for commercial and non commercial projects. Free to use. Free to play.
+
+Author project:
+https://www.behance.net/gallery/104641293/NEUTRAL-FACE-FREE-FONT
+
+Font distribution source:
+https://fonts.cdnfonts.com/s/83475/NeutralFace.woff
+Retrieved: 2026-10-16
+
+The original font is bundled unchanged. OS/2 fsType is 0 (unrestricted embedding).

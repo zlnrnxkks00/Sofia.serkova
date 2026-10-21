@@ -1,0 +1,17 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const css = fs.readFileSync('dist/styles.css', 'utf8');
+const html = fs.readFileSync('dist/index.html', 'utf8');
+const start = css.lastIndexOf('@media(min-width:768px) and (max-width:1100px){');
+assert(start > css.indexOf('/* Flowing panels keep full width'));
+const tablet = css.slice(start, css.indexOf('\n}', start));
+assert(tablet.includes('.story-inner{padding:36px 0 44px}'));
+assert(tablet.includes('.story-inner>.section-kicker{position:static;padding-bottom:36px;z-index:auto}'));
+assert(tablet.includes('.story-panels{gap:48px}'));
+assert(tablet.includes('.story-panel{height:auto;min-height:0;overflow:visible;padding-block:0;justify-content:flex-start}'));
+assert(!tablet.includes('padding-inline'), 'Tablet keeps the existing horizontal text gutters');
+assert(!/\.story-panel[^{}]*\{[^}]*font-size/.test(tablet), 'Approach type sizes are unchanged');
+assert(css.includes('.has-story-motion .story{height:270vh;height:270svh}'));
+assert(css.includes('html:not(.has-story-motion) .story-panels{gap:70px}'));
+assert(html.includes('<source media="(max-width: 1100px)" srcset="assets/story-olive-tree-portrait.webp"'));
+console.log('Tablet-only content heights, 48px spacing, preserved gutters/fonts, desktop/mobile layouts and shared tree passed');
